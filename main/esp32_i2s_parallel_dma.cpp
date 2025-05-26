@@ -151,13 +151,15 @@ size_t _dma_buffer_size = DMA_BUFFER_SIZE;
 
     // I2S 설정
     i2s_config_t i2s_config = {
-        .sample_rate = _cfg.bus_freq,  // 예: 10 MHz
+        .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_TX),
+        .sample_rate = 500000,
         .bits_per_sample = I2S_BITS_PER_SAMPLE_16BIT,
         .channel_format = I2S_CHANNEL_FMT_ONLY_RIGHT, // 하나의 채널만 사용
         .communication_format = I2S_COMM_FORMAT_I2S_MSB,
+         .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,
         .dma_buf_count = 4,
         .dma_buf_len = 64,
-        .use_apll = false,
+        .use_apll = false
     };
 
     // I2S 핀 설정 (병렬 버스는 커스텀 라우팅 필요)

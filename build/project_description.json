@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "hello_world",
-    "project_version":    "9461ec2-dirty",
+    "project_version":    "182ef3d-dirty",
     "project_path":       "C:/SB_JPG_DEMO/hello_world",
     "idf_path":           "C:/Users/nanch/esp/v5.4.1/esp-idf",
     "build_dir":          "C:/SB_JPG_DEMO/hello_world/build",

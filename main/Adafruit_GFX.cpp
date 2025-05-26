@@ -183,7 +183,7 @@ void Adafruit_GFX::startWrite() {}
 */
 /**************************************************************************/
 void Adafruit_GFX::writePixel(int16_t x, int16_t y, uint16_t color) {
-  //printf("wPixel:%d,%d,%d ",x,y,color);
+  printf("wPixel:%d,%d,%d ",x,y,color);
   drawPixel(x, y, color);
 }
 

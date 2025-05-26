@@ -13,3 +13,4 @@ idf_component_register(
     REQUIRES driver
     PRIV_REQUIRES spi_flash esp_driver_gpio 
 )
+
