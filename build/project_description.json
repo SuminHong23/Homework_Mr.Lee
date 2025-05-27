@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "hello_world",
-    "project_version":    "182ef3d-dirty",
+    "project_version":    "d2b5a3b-dirty",
     "project_path":       "C:/SB_JPG_DEMO/hello_world",
     "idf_path":           "C:/Users/nanch/esp/v5.4.1/esp-idf",
     "build_dir":          "C:/SB_JPG_DEMO/hello_world/build",
@@ -1190,12 +1190,12 @@
             "dir": "C:/SB_JPG_DEMO/hello_world/main",
             "type": "LIBRARY",
             "lib": "__idf_main",
-            "reqs": [ "driver" ],
+            "reqs": [ "driver", "esp_lcd" ],
             "priv_reqs": [ "spi_flash", "esp_driver_gpio" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/SB_JPG_DEMO/hello_world/build/esp-idf/main/libmain.a",
-            "sources": [ "C:/SB_JPG_DEMO/hello_world/main/main.cpp", "C:/SB_JPG_DEMO/hello_world/main/ESP32-HUB75-MatrixPanel-I2S-DMA.cpp", "C:/SB_JPG_DEMO/hello_world/main/ESP32-HUB75-MatrixPanel-leddrivers.cpp", "C:/SB_JPG_DEMO/hello_world/main/Print.cpp", "C:/SB_JPG_DEMO/hello_world/main/WString.cpp", "C:/SB_JPG_DEMO/hello_world/main/Adafruit_GFX.cpp", "C:/SB_JPG_DEMO/hello_world/main/glcdfont.c", "C:/SB_JPG_DEMO/hello_world/main/stdlib_noniso", "C:/SB_JPG_DEMO/hello_world/main/esp32_i2s_parallel_dma.cpp" ],
+            "sources": [ "C:/SB_JPG_DEMO/hello_world/main/main.cpp", "C:/SB_JPG_DEMO/hello_world/main/ESP32-HUB75-MatrixPanel-I2S-DMA.cpp", "C:/SB_JPG_DEMO/hello_world/main/ESP32-HUB75-MatrixPanel-leddrivers.cpp", "C:/SB_JPG_DEMO/hello_world/main/Print.cpp", "C:/SB_JPG_DEMO/hello_world/main/WString.cpp", "C:/SB_JPG_DEMO/hello_world/main/Adafruit_GFX.cpp", "C:/SB_JPG_DEMO/hello_world/main/glcdfont.c", "C:/SB_JPG_DEMO/hello_world/main/stdlib_noniso", "C:/SB_JPG_DEMO/hello_world/main/gdma_lcd_parallel16.cpp" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {
@@ -2856,7 +2856,7 @@
             "prefix": "idf",
             "dir": "C:/SB_JPG_DEMO/hello_world/main",
             "lib": "__idf_main",
-            "reqs": [ "driver" ],
+            "reqs": [ "driver", "esp_lcd" ],
             "priv_reqs": [ "spi_flash", "esp_driver_gpio" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],

@@ -671,7 +671,7 @@ void MatrixPanel_I2S_DMA::setBrightnessOE(uint8_t brt, const int _buff_id)
  *  overload for compatibility
  */
 
-bool MatrixPanel_I2S_DMA::begin(int r1, int g1, int b1, int r2, int g2, int b2, int a, int b, int c, int d, int e, int lat, int oe, int clk)
+bool MatrixPanel_I2S_DMA::begin(int r1, int g1, int b1, int r2, int g2, int b2, int a, int b, int c, int d, int lat, int oe, int clk)
 {
   if (initialized)
     return true;
@@ -688,7 +688,7 @@ bool MatrixPanel_I2S_DMA::begin(int r1, int g1, int b1, int r2, int g2, int b2, 
   m_cfg.gpio.b = b;
   m_cfg.gpio.c = c;
   m_cfg.gpio.d = d;
-  m_cfg.gpio.e = e;
+  
 
   // Clock & Control
   m_cfg.gpio.lat = lat;

@@ -8,9 +8,9 @@ idf_component_register(
         "Adafruit_GFX.cpp"
         "glcdfont.c"
         "stdlib_noniso"
-        "esp32_i2s_parallel_dma.cpp"
+        "gdma_lcd_parallel16.cpp"
     INCLUDE_DIRS "."
-    REQUIRES driver
+    REQUIRES driver esp_lcd   
     PRIV_REQUIRES spi_flash esp_driver_gpio 
 )
 

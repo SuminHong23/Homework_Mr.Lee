@@ -8,27 +8,8 @@
 #include <esp_log.h>
 #include "esp_attr.h"
 #include "esp_heap_caps.h"
-#include "esp32_i2s_parallel_dma.h"
-#define R1_PIN_DEFAULT  0
-#define G1_PIN_DEFAULT  19
-#define B1_PIN_DEFAULT  1
-#define R2_PIN_DEFAULT  2
-#define G2_PIN_DEFAULT  20
-#define B2_PIN_DEFAULT  4
-
-#define A_PIN_DEFAULT   5
-#define B_PIN_DEFAULT   21
-#define C_PIN_DEFAULT   12
-#define D_PIN_DEFAULT   39
-#define E_PIN_DEFAULT   -1 // IMPORTANT: Change to a valid pin if using a 64x64px panel.
-            
-#define LAT_PIN_DEFAULT 40
-#define OE_PIN_DEFAULT  14
-#define CLK_PIN_DEFAULT 13
-
-
-
-
+#include "gdma_lcd_parallel16.hpp"
+#include "esp32s3-default-pins.hpp"
 
 //#include <Arduino.h>
 
@@ -349,7 +330,7 @@ struct HUB75_I2S_CFG
       uint16_t _chain = CHAIN_LENGTH,
       i2s_pins _pinmap = {
           R1_PIN_DEFAULT, G1_PIN_DEFAULT, B1_PIN_DEFAULT, R2_PIN_DEFAULT, G2_PIN_DEFAULT, B2_PIN_DEFAULT,
-          A_PIN_DEFAULT, B_PIN_DEFAULT, C_PIN_DEFAULT, D_PIN_DEFAULT, E_PIN_DEFAULT,
+          A_PIN_DEFAULT, B_PIN_DEFAULT, C_PIN_DEFAULT, D_PIN_DEFAULT,
           LAT_PIN_DEFAULT, OE_PIN_DEFAULT, CLK_PIN_DEFAULT},
       shift_driver _drv = SHIFTREG, 
       bool _dbuff = false, 
@@ -463,7 +444,6 @@ public:
     ESP_LOGI("begin()", "Using GPIO %d for B_PIN", m_cfg.gpio.b);
     ESP_LOGI("begin()", "Using GPIO %d for C_PIN", m_cfg.gpio.c);
     ESP_LOGI("begin()", "Using GPIO %d for D_PIN", m_cfg.gpio.d);
-    ESP_LOGI("begin()", "Using GPIO %d for E_PIN", m_cfg.gpio.e);
     ESP_LOGI("begin()", "Using GPIO %d for LAT_PIN", m_cfg.gpio.lat);
     ESP_LOGI("begin()", "Using GPIO %d for OE_PIN", m_cfg.gpio.oe);
     ESP_LOGI("begin()", "Using GPIO %d for CLK_PIN", m_cfg.gpio.clk);
@@ -523,7 +503,7 @@ public:
   /*
    *  overload for compatibility
    */
-  bool begin(int r1, int g1 = G1_PIN_DEFAULT, int b1 = B1_PIN_DEFAULT, int r2 = R2_PIN_DEFAULT, int g2 = G2_PIN_DEFAULT, int b2 = B2_PIN_DEFAULT, int a = A_PIN_DEFAULT, int b = B_PIN_DEFAULT, int c = C_PIN_DEFAULT, int d = D_PIN_DEFAULT, int e = E_PIN_DEFAULT, int lat = LAT_PIN_DEFAULT, int oe = OE_PIN_DEFAULT, int clk = CLK_PIN_DEFAULT);
+  bool begin(int r1, int g1 = G1_PIN_DEFAULT, int b1 = B1_PIN_DEFAULT, int r2 = R2_PIN_DEFAULT, int g2 = G2_PIN_DEFAULT, int b2 = B2_PIN_DEFAULT, int a = A_PIN_DEFAULT, int b = B_PIN_DEFAULT, int c = C_PIN_DEFAULT, int d = D_PIN_DEFAULT, int lat = LAT_PIN_DEFAULT, int oe = OE_PIN_DEFAULT, int clk = CLK_PIN_DEFAULT);
   bool begin(const HUB75_I2S_CFG &cfg);
 
   // Adafruit's BASIC DRAW API (565 colour format)
