@@ -86,9 +86,9 @@ void drawText(int colorWheelOffset) {
 
 extern "C" void app_main(void)
 {
-    vTaskDelay(pdMS_TO_TICKS(2000)); // 부팅 후 대기
+    vTaskDelay(pdMS_TO_TICKS(5000));
     ESP_LOGI(TAG, "app_main 실행 시작!");
-
+    
     HUB75_I2S_CFG mxconfig(
         PANEL_RES_X,
         PANEL_RES_Y,
@@ -96,12 +96,41 @@ extern "C" void app_main(void)
     );
 
     dma_display = new MatrixPanel_I2S_DMA(mxconfig);
+    dma_display->begin();
+    dma_display->setBrightness8(90);
+    dma_display->clearScreen();
 
-    if (!dma_display->begin()) {
-        ESP_LOGE(TAG, "MatrixPanel_I2S_DMA 초기화 실패!");
-        return;
+    myBLACK = dma_display->color565(0, 0, 0);
+    myWHITE = dma_display->color565(255, 255, 255);
+    myRED = dma_display->color565(255, 0, 0);
+    myGREEN = dma_display->color565(0, 255, 0);
+    myBLUE = dma_display->color565(0, 0, 255);
+
+    dma_display->fillScreen(myWHITE);
+
+    dma_display->fillRect(0, 0, dma_display->width(), dma_display->height(), dma_display->color444(0, 15, 0));
+    vTaskDelay(pdMS_TO_TICKS(500));
+
+    dma_display->drawRect(0, 0, dma_display->width(), dma_display->height(), dma_display->color444(15, 15, 0));
+    vTaskDelay(pdMS_TO_TICKS(500));
+
+    dma_display->drawLine(0, 0, dma_display->width() - 1, dma_display->height() - 1, dma_display->color444(15, 0, 0));
+    dma_display->drawLine(dma_display->width() - 1, 0, 0, dma_display->height() - 1, dma_display->color444(15, 0, 0));
+    vTaskDelay(pdMS_TO_TICKS(500));
+
+    dma_display->drawCircle(10, 10, 10, dma_display->color444(0, 0, 15));
+    vTaskDelay(pdMS_TO_TICKS(500));
+
+    dma_display->fillCircle(40, 21, 10, dma_display->color444(15, 0, 15));
+    vTaskDelay(pdMS_TO_TICKS(500));
+
+    dma_display->fillScreen(dma_display->color444(0, 0, 0));
+
+    uint8_t wheelval = 0;
+
+    while(true) {
+        drawText(wheelval);
+        wheelval += 1;
+        vTaskDelay(pdMS_TO_TICKS(20));
     }
-
-    dma_display->setBrightness8(100);
-    dma_display->fillScreen(dma_display->color565(255, 255, 255)); // 흰색으로 전체 채움
 }
