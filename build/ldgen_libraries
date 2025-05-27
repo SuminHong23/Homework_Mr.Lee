@@ -83,4 +83,6 @@ C:/SB_JPG_DEMO/hello_world/build/esp-idf/spiffs/libspiffs.a
 C:/SB_JPG_DEMO/hello_world/build/esp-idf/touch_element/libtouch_element.a
 C:/SB_JPG_DEMO/hello_world/build/esp-idf/usb/libusb.a
 C:/SB_JPG_DEMO/hello_world/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
+C:/SB_JPG_DEMO/hello_world/build/esp-idf/adafruit_gfx/libadafruit_gfx.a
+C:/SB_JPG_DEMO/hello_world/build/esp-idf/matrix_panel/libmatrix_panel.a
 C:/SB_JPG_DEMO/hello_world/build/esp-idf/main/libmain.a

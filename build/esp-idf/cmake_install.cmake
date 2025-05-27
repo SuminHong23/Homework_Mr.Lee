@@ -554,6 +554,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("C:/SB_JPG_DEMO/hello_world/build/esp-idf/adafruit_gfx/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/SB_JPG_DEMO/hello_world/build/esp-idf/matrix_panel/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("C:/SB_JPG_DEMO/hello_world/build/esp-idf/main/cmake_install.cmake")
 endif()
 
